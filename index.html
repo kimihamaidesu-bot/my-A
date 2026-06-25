@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div id="app">
+  <!-- サイドバー（部屋一覧） -->
+  <div id="sidebar">
+    <h3>ルーム一覧</h3>
+    <ul id="room-list"></ul>
+    <button id="add-room-btn">＋ 部屋を追加</button>
+  </div>
+
+  <!-- メインエリア -->
+  <div id="main-content">
+    <!-- ヘッダー（ユーザー設定と部屋情報） -->
+    <div id="header">
+      <div id="room-info">
+        <span id="current-room-name">ロビー</span>
+        <button id="rename-room-btn">名前変更</button>
+        <button id="delete-room-btn">削除</button>
+      </div>
+      <div id="user-settings">
+        <!-- あなたのマイページID -->
+        <input type="hidden" id="my-user-id" value="">
+        
+        <!-- アイコン選択 -->
+        <select id="user-icon">
+          <option value="👤">👤 通常</option>
+          <option value="🐱">🐱 ねこ</option>
+          <option value="🐶">🐶 いぬ</option>
+          <option value="🐰">🐰 うさぎ</option>
+          <option value="🦊">🦊 きつね</option>
+          <option value="🐼">🐼 ぱんだ</option>
+          <option value="🐣">🐣 ひよこ</option>
+          <option value="👑">👑 王冠</option>
+          <option value="✨">✨ きらきら</option>
+          <option value="CUSTOM">📷 自分の写真を選ぶ...</option>
+        </select>
+        
+        <!-- 写真ファイルをアップロードするための隠しボタン -->
+        <input type="file" id="icon-file-input" accept="image/*" style="display: none;">
+        
+        <input type="text" id="user-name" value="ユーザー1" placeholder="名前">
+        <label><input type="checkbox" id="admin-mode"> 管理者</label>
+      </div>
+    </div>
+
+    <!-- チャット表示部分 -->
+    <div id="chat-box"></div>
+
+    <!-- 管理者専用の人数カウント表 -->
+    <div id="admin-panel" style="display: none;">
+      <h4>📊 管理者データパネル</h4>
+      <table id="stats-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>人数 / 件数</th>
+          </tr>
+        </thead>
+        <tbody id="stats-tbody">
+          <!-- ここにJavaScriptでデータが入ります -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 入力部分（文字数カウンター付き） -->
+    <div id="input-area" style="position: relative;">
+      <input type="text" id="message-input" placeholder="メッセージを入力（200文字まで）...">
+      <span id="char-count" style="position: absolute; right: 130px; bottom: 30px; font-size: 11px; color: #aaa;">0 / 200</span>
+      <button id="send-btn">送信</button>
+    </div>
+  </div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>

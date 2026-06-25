@@ -1,0 +1,268 @@
+/* 全体のデザイン（淡いグレーとベージュをベースに） */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #495057;
+}
+
+#app {
+  display: flex;
+  height: 100vh;
+  padding: 15px;
+  box-sizing: border-box;
+  gap: 15px;
+}
+
+/* サイドバー（部屋一覧） */
+#sidebar {
+  width: 240px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+#sidebar h3 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #6c757d;
+  letter-spacing: 0.5px;
+}
+
+#room-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+#room-list li {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: 12px;
+  background: #f8f9fa;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+#room-list li:hover {
+  background: #e9ecef;
+}
+
+#room-list li.active {
+  background-color: #e7f5ff;
+  color: #228be6;
+  font-weight: bold;
+}
+
+#add-room-btn {
+  background: #e6fcf5;
+  color: #0ca678;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* メインコンテンツ */
+#main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+}
+
+/* ヘッダー */
+#header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+#current-room-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#header button {
+  background: #f1f3f5;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #495057;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+#user-settings {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+#user-settings input, #user-settings select {
+  border: 1px solid #dee2e6;
+  padding: 6px 10px;
+  border-radius: 8px;
+  outline: none;
+  background: #fafafa;
+}
+
+/* チャット表示部分 */
+#chat-box {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+}
+
+/* メッセージの共通デザイン */
+.msg-item {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  max-width: 70%;
+  width: fit-content;
+  align-self: flex-start;
+}
+
+/* 自分のメッセージ（右側に寄せる） */
+.msg-item.my-msg {
+  align-self: flex-end;
+  background: #f3f0ff;
+}
+
+.msg-header {
+  font-size: 12px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 写真アイコン用の丸い枠 */
+.chat-custom-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+/* 管理者の名前 */
+.admin-name {
+  background-color: #fff9db;
+  color: #f59f00;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.del-btn, .block-btn {
+  font-size: 11px;
+  border: none;
+  background: #fff5f5;
+  color: #fa5252;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.msg-body {
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+/* 管理者パネルとデータ表のデザイン */
+#admin-panel {
+  background-color: #fffde7;
+  padding: 15px 20px;
+  border-top: 1px solid #fff9db;
+  border-bottom: 1px solid #fff9db;
+}
+#admin-panel h4 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #f59f00;
+}
+#stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+#stats-table th {
+  text-align: left;
+  padding: 6px 12px;
+  color: #868e96;
+  font-weight: normal;
+  background: #fff9db;
+}
+#stats-table td {
+  padding: 8px 12px;
+  color: #495057;
+}
+#stats-table tr:not(:last-child) {
+  border-bottom: 1px solid #f1f3f5;
+}
+
+/* 入力エリア */
+#input-area {
+  padding: 20px;
+  background: #ffffff;
+  display: flex;
+  gap: 10px;
+}
+
+#message-input {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #e9ecef;
+  background: #f8f9fa;
+  border-radius: 12px;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+#message-input:focus {
+  background: #ffffff;
+  border-color: #cc5de8;
+  box-shadow: 0 0 0 3px rgba(204, 93, 232, 0.1);
+}
+
+#send-btn {
+  padding: 0 24px;
+  background: #f3f0ff;
+  color: #748ffc;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#send-btn:hover {
+  background: #748ffc;
+  color: #ffffff;
+}
